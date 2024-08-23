@@ -7,6 +7,9 @@ let data = new Array();
 let makecard = document.querySelector("#createListItem");
 let modal = document.querySelector("dialog");
 let main = document.querySelector("main");
+makecard.addEventListener("click", () => {
+  modal.showModal();
+})
 let anEntery = {
   "title": "List item",
   "description": "This is a test list",

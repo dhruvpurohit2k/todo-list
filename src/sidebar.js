@@ -5,4 +5,14 @@ export function updateSideBar(Entries) {
     li.innerText = element.title;
     sidebaritems.appendChild(li);
   });
+  addListenerToSideBar(sidebaritems);
+}
+
+function addListenerToSideBar(sidebar) {
+  let Items = sidebar.querySelectorAll("li");
+  Items.forEach(ele => {
+    ele.addEventListener("click", () => {
+      alert("Clicked item" + ele.innerText)
+    });
+  })
 }

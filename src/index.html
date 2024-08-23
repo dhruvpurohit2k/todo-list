@@ -11,15 +11,30 @@
       <button id="home">Home</button>
       <button id="createListItem">Create A List</button>
     </header>
-    <sidebar> <p id="sidebarheading">Lists</p><ul id="sidebaritems">
-
-    </ul>
-     </sidebar>
-    <main></main>
-    <dialog>
-      <div class="maketodo">
+    <sidebar>
+      <p id="sidebarheading">Lists</p>
+      <ul id="sidebaritems"></ul>
+    </sidebar>
+    <main>
+      <div class="list"></div>
+    </main>
+    <dialog >
+      <!-- <div class="maketodo">
         <p>This is a modal</p>
+      </div> -->
+      <form action="" method="dialog">
+        <div>
+          <label for="listName">List Name : </label>
+          <input type="text" name="listName" id="listName" />
+        </div>
+        <div>
+          <label for="dueDate">Due Date : </label>
+          <input type="datetime" name="dueDate" id="dueDate">
+        </div>
+        <div><label for="Description">Description</label>
+        <input type="text">
       </div>
+      </form>
     </dialog>
   </body>
 </html>
