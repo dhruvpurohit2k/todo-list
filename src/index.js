@@ -4,6 +4,7 @@ import { renderHome } from './home';
 import { updateSideBar } from './sidebar';
 
 let data = new Array();
+let home = document.querySelector("#home");
 let makecard = document.querySelector("#createListItem");
 let modal = document.querySelector("dialog");
 let main = document.querySelector("main");
@@ -34,7 +35,10 @@ let anEntery2 = {
     "Item1",
   ]
 }
-
 let Entries = [anEntery, anEntery2];
+renderHome(Entries);
 updateSideBar(Entries);
-// renderHome(Entries);
+home.addEventListener("home", () => {
+  renderHome(Entries);
+})
+

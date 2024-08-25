@@ -3,7 +3,10 @@ export function updateSideBar(Entries) {
   Entries.forEach(element => {
     let li = document.createElement("li");
     li.innerText = element.title;
-    sidebaritems.appendChild(li);
+    sidebaritems.appendChild(li.cloneNode(true));
+    sidebaritems.appendChild(li.cloneNode(true));
+    sidebaritems.appendChild(li.cloneNode(true));
+    sidebaritems.appendChild(li.cloneNode(true));
   });
   addListenerToSideBar(sidebaritems);
 }

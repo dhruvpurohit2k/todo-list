@@ -12,16 +12,13 @@
       <button id="createListItem">Create A List</button>
     </header>
     <sidebar>
-      <p id="sidebarheading">Lists</p>
+      <!-- <p id="sidebarheading">Lists</p> -->
       <ul id="sidebaritems"></ul>
     </sidebar>
     <main>
       <div class="list"></div>
     </main>
     <dialog >
-      <!-- <div class="maketodo">
-        <p>This is a modal</p>
-      </div> -->
       <form action="" method="dialog">
         <div>
           <label for="listName">List Name : </label>
@@ -31,9 +28,13 @@
           <label for="dueDate">Due Date : </label>
           <input type="datetime" name="dueDate" id="dueDate">
         </div>
-        <div><label for="Description">Description</label>
+        <div><label for="Description">Description : </label>
         <input type="text">
       </div>
+      <div>
+      <label for="listItems">List Items : </label>
+      </div>
+      <button type="submit">SAVE</button>
       </form>
     </dialog>
   </body>
