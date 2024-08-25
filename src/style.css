@@ -9,9 +9,12 @@ body {
   margin: 0px;
   height: 100%;
   width: 100%;
+  *{
+    box-sizing: border-box;
+  }
 }
 body {
-  background-color:aliceblue;
+  background-color: aliceblue;
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr 10fr;
@@ -21,23 +24,23 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:#456cda;
+  background-color: #456cda;
   color: #d8dee9;
-  padding: 0px 50px;
+  padding: 0px 75px;
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.14);
-  z-index:2;
+  z-index: 2;
   p {
     font-size: 3rem;
   }
   button {
     color: #2e3440;
     background-color: #60a5fa;
-    border:none;
+    border: none;
     border-radius: 10px;
     font-size: 1.3rem;
     padding: 15px;
   }
-  button:hover{
+  button:hover {
     background-color: #aec9eb;
     color: #3b6393;
   }
@@ -46,117 +49,47 @@ header {
     margin-right: 30px;
   }
 }
-sidebar {
-  padding: 20px;
-  grid-area: 2/1/3/2;
-  background-color:#456cda;
-  max-width: 300px;
-  backdrop-filter: blur(10px);
-  #sidebarheading {
-    font-size: 2rem;
-    color: #d8dee9;
-    margin-bottom: 50px;
-  }
-  #sidebaritems {
-    list-style-type: none;
-    line-height: 3;
-    color: #d8dee9;
-    font-size: 1.2rem;
-    li {
-      background-color: #60a5fa;
-      margin: 10px 0px;
-      text-align: center;
-      border-radius: 10px;
-    }
-    li:hover{
-      background-color: aliceblue;
-      color:#60a5fa;
-    }
-  }
-}
-main {
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  .card {
-    margin: 20px;
-    width: 350px;
-    height: 200px;
-    background-color: #456cda;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.27);
-    .title {
-      font-size: 1.7rem;
-      padding: 20px 5px;
-    }
-    .duedate {
-      align-self: flex-end;
-      margin-top: auto;
-      padding: 10px;
-      font-size: 1.5rem;
-      padding: 10px;
-      color:#f87171;
-    }
-  }
-}
-
 dialog {
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  .maketodo {
-    background-color: red;
-    height: 100px;
-    width: 100px;
-  }
-}
-
-main {
-  .list {
-    width: 80%;
-    height: 80%;
-    background-color: #3b4252;
-  }
-}
-dialog {
-  position: relative;
-  top: 25%;
-  left: 25%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   border: none;
-  color: #1d3858;
-  padding: 20px;
-  background-color:aliceblue;
   border-radius: 10px;
-  width: 50%;
-  height: 50%;
+  padding: 20px;
+  width: clamp(450px, 50vw, 1000px);
+  button {
+    background-color: #60a5fa;
+    color: #2e3440;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    margin: 10px 0px;
+  }
+
   form {
-    font-size: 1.5rem;
-    margin: 10px;
     display: flex;
     flex-direction: column;
+    *{font-size: 1.5rem;}
+    #listItems{
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      overflow: auto;
+      height:300px;
+    }
     input {
-      border: none;
-      font-size: 1.1rem;
-      margin-left: 5px;
+      border: 1px solid #60a5fa;
       outline: none;
-      width: 45ch;
+      border-radius: 3px;
     }
-    div {
-      margin-top: 10px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    button{
-      border: none;
-      border-radius: 5px;
-      font-size: 1.5rem;
-      width: 150px;
-      background-color: #456cda;
-      grid-area: 1/1/2/3;
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        margin-left: auto;
+        padding: 15px;
+      }
     }
   }
 }

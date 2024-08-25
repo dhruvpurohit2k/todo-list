@@ -8,8 +8,8 @@
   <body>
     <header>
       <p>TO DO LIST</p>
-      <button id="home">Home</button>
-      <button id="createListItem">Create A List</button>
+      <!-- <button id="home">Home</button> -->
+      <button id="createListItem">+ ITEM</button>
     </header>
     <sidebar>
       <!-- <p id="sidebarheading">Lists</p> -->
@@ -18,23 +18,18 @@
     <main>
       <div class="list"></div>
     </main>
-    <dialog >
+    <dialog>
       <form action="" method="dialog">
-        <div>
-          <label for="listName">List Name : </label>
-          <input type="text" name="listName" id="listName" />
-        </div>
-        <div>
+          <div id="listItems">
+          <label for="listItem1"> Item 1 :</label>
+          <input type="text" name="listItem1">
+          </div>
+          <button type="button" id="addListItem">+</button>
+        <footer>
           <label for="dueDate">Due Date : </label>
-          <input type="datetime" name="dueDate" id="dueDate">
-        </div>
-        <div><label for="Description">Description : </label>
-        <input type="text">
-      </div>
-      <div>
-      <label for="listItems">List Items : </label>
-      </div>
-      <button type="submit">SAVE</button>
+          <input type="datetime-local" name="dueDate" id="dueDate" />
+          <button type="submit">SAVE</button>
+        </footer>
       </form>
     </dialog>
   </body>
