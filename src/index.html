@@ -20,6 +20,8 @@
     </main>
     <dialog>
       <form action="" method="dialog">
+          <label for="listHeading">Name of the List:</label>
+          <input type="text" name="listHeading" id="listHeading">
           <div id="listItems">
           <label for="listItem1"> Item 1 :</label>
           <input type="text" name="listItem1">
@@ -28,7 +30,7 @@
         <footer>
           <label for="dueDate">Due Date : </label>
           <input type="datetime-local" name="dueDate" id="dueDate" />
-          <button type="submit">SAVE</button>
+          <button type="submit" id="saveButton">SAVE</button>
         </footer>
       </form>
     </dialog>
