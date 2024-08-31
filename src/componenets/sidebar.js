@@ -6,6 +6,11 @@ function rederSideBar() {
   let sidebar = document.querySelector("sidebar");
   makeUpcoming(sidebar);
   makeProject(sidebar);
+  makeNotes(sidebar);
+  let add = document.createElement("button");
+  add.innerHTML = "ADD ITEM";
+  add.classList.add("addItemButton");
+  sidebar.append(add);
 }
 function makeUpcoming(sidebar) {
   let listcontainer = document.createElement("ul");
@@ -30,5 +35,12 @@ function makeProject(sidebar) {
   })
   sidebar.append(sectionHeading);
   sidebar.appendChild(listcontainer);
+}
+
+function makeNotes(sidebar) {
+  let notes = document.createElement("p");
+  notes.classList.add("notes");
+  notes.innerHTML = "NOTES";
+  sidebar.appendChild(notes);
 }
 export { rederSideBar }
