@@ -1,4 +1,7 @@
 
+.hidden{
+  visibility: hidden;
+}
 dialog{
   padding: 10px;
   *{
@@ -28,8 +31,11 @@ dialog{
   list-style-type: none;
   line-height: 4;
   border-right: 2px solid rgba(243, 217, 168, 0.436);
+  
 }
-
+.options li:hover{
+  transform: scale(1.1,1.1);
+}
 #priority{
   grid-area: 2/2/3/3;
   margin-top:10px;
@@ -44,6 +50,115 @@ dialog{
     border-radius: 5px;
   }
   .priorityButton:hover{
-    background-color: rgb(181, 117, 0)
+    transform: scale(1.1,1.1);
+  }
+  .prioritySelected{
+    background-color: orange;
+  }
+}
+form{
+  button{
+    border: none;
+    background-color:rgba(255, 166, 0, 0.505);
+    border-radius: 10px;
+    padding:5px;
+    font-size: 1.5rem;
+    width: 10ch;
+    position:absolute;
+  }
+}
+.toDoForm{
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(4,1fr);
+  font-size: 1.3rem;
+  justify-content: center;
+  align-items: center;
+  *{
+    border-radius: 10px;
+    padding:10px;
+  }
+  input{
+    height: 2rem;
+    background-color: wheat;
+    border: none;
+    font-size: 1.2rem;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  textarea{
+    border:none;
+    resize: none;
+    background-color: wheat;
+    outline:none;
+    height: 5.2rem;
+    padding:20px;
+    overflow: hidden;
+  }
+  button{
+    grid-area: -2/-2/-1/-1;
+    margin-left:auto;
+  }
+  button:hover{
+    transform:scale(1.1,1.1);
+  }
+}
+
+.projectForm{
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr,1fr;
+  margin-top: 40px;
+  justify-content: center;
+  font-size: 1.3rem;
+  label{
+    margin-top:10px;
+  }
+  input{
+    height: 3rem;
+    outline:none;
+    padding:10px;
+    font-size:1.5rem;  
+    font-weight: 400;
+  }
+  button{
+    grid-area:2/2/2/2;
+    height: 40px;
+    margin-left:auto;
+    margin-right: 30px;
+  }
+}
+
+.notesForm{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding:20px;
+  input,textarea{
+    background-color:wheat;
+    outline: none;
+    border: none;
+  }
+  input{
+    font-size: 1.7rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding:5px;
+  }
+  textarea{
+    padding:5px;
+    padding-top:15px;
+    font-size:1.5rem;
+    height:200px;
+    resize: none;
+    border-bottom-right-radius: 10px;
+  }
+  button{
+    top: 100%;
+    left:35%;
   }
 }
