@@ -1,11 +1,16 @@
 import '../asset/styles/modal.css';
-
+import { projects, notes, todo } from './data';
+import { renderSideBar } from './sidebar';
 let modal = document.querySelector("dialog");
 let selectedpriority = 1;
 let selectedoptions = 0;
+let submitButton = modal.querySelector("#submit");
 function createModal() {
   createModalOptions();
   createPriorityitems();
+  createTodoSection();
+  modal.classList.add("hidden");
+  submitButton.addEventListener("click", submit);
 }
 function createModalOptions() {
   let options = modal.querySelector("#options");
@@ -33,6 +38,7 @@ function createPriorityitems() {
   button.innerHTML = "HIGH";
   button.classList.remove("prioritySelected");
   prioritySection.appendChild(button.cloneNode(true));
+  prioritySection.classList.add("hidden");
   setButtonPriority();
 
 }
@@ -66,6 +72,7 @@ function changeOption(index) {
 }
 
 function createTodoSection() {
+  selectedoptions = 0;
   document.querySelector("#priority").classList.remove("hidden");
   let form = document.querySelector("form");
   form.innerHTML = "";
@@ -97,13 +104,11 @@ function createTodoSection() {
   form.appendChild(label.cloneNode(true));
   form.appendChild(input.cloneNode(true));
 
-  let button = document.createElement("button");
-  button.innerHTML = "SUBMIT";
-  form.appendChild(button);
 }
 
 function createProjects() {
   let form = document.querySelector("form");
+  selectedoptions = 1;
   form.innerHTML = "";
   form.className = "projectForm";
   let label = document.createElement("label");
@@ -113,14 +118,12 @@ function createProjects() {
   input.setAttribute("name", "projectTitle");
   form.appendChild(label);
   form.appendChild(input);
-  let button = document.createElement("button");
-  button.innerHTML = "SUBMIT";
-  form.appendChild(button);
   document.querySelector("#priority").classList.add("hidden");
 }
 
 function createNotes() {
   let form = document.querySelector("form");
+  selectedoptions = 2;
   form.innerHTML = "";
   form.className = "notesForm";
   let headding = document.createElement("input");
@@ -128,10 +131,42 @@ function createNotes() {
   let textarea = document.createElement("textarea");
   form.appendChild(headding);
   form.appendChild(textarea);
-  let button = document.createElement("button");
-  button.innerHTML = "SUBMIT";
-  form.appendChild(button);
+  headding.addEventListener("keydown", (e => {
+    if (e.key == "Enter") {
+      textarea.focus();
+    }
+  }))
   document.querySelector("#priority").classList.add("hidden");
 }
 
-export { createModal };
+function submit() {
+  let form = document.querySelector("form");
+  if (selectedoptions == 0) {
+    let task = form.querySelector("input[name=\"toDoHeading\"]").value;
+    let desc = form.querySelector("textarea[name=\"toDoDescription\"]").value;
+    let dueDate = form.querySelector("input[name=\"dueDate\"]").value;
+    console.log(`${task} ${desc} ${dueDate}`);
+  } else if (selectedoptions == 2) {
+    let heading = form.querySelector("input").value;
+    let description = form.querySelector("textarea").value;
+    console.log(`${heading} ${description}`);
+  } else {
+    let projectTitle = form.querySelector("input[name=\"projectTitle\"]").value;
+    projects.push({
+      name: projectTitle,
+    })
+    console.log(projects);
+    renderSideBar();
+    modal.classList.add("hidden");
+    resetModal();
+  }
+}
+
+function resetModal() {
+  selectedoptions = 0;
+  selectedpriority = 1;
+  document.querySelector("form").innerHTML = "";
+  createTodoSection();
+}
+
+export { createModal, resetModal };

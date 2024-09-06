@@ -1,11 +1,19 @@
 import './asset/styles/style.css';
-import { rederSideBar } from "./componenets/sidebar";
-import { createModal } from './componenets/addItem';
+import { renderSideBar } from "./componenets/sidebar";
+import { createModal, resetModal } from './componenets/addItem';
 
-rederSideBar();
+renderSideBar();
 createModal();
-let createListItem = document.querySelector(".addItemButton");
-createListItem.addEventListener("click", () => {
+
+document.addEventListener("keydown", (e) => {
+  if (e.key == "Escape") {
+    e.preventDefault();
+    resetModal();
+    document.querySelector("dialog").classList.add("hidden");
+  }
+  if (e.key == "Enter") {
+    e.preventDefault();
+  }
 })
 
 
